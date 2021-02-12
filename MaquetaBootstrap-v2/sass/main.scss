@@ -1,0 +1,376 @@
+// Color variables
+$grisFosc: #555;
+$grisMig: #aaa;
+$grisClar: #eee;
+$verdAcces: #05ff05;
+
+// Parts comunes
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    color: $grisFosc;
+}
+
+a {
+    color: $grisFosc;
+
+    &:hover {
+        color: $grisFosc;
+        text-decoration: none;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    #submit,
+    #submitRegistro {
+        background-color: $verdAcces;
+
+        &:hover {
+            background-color: darken($verdAcces, 15%);
+        }
+    }
+
+    &>footer {
+        flex: 1 0 auto;
+        height: auto;
+
+        #contFooter {
+            margin: auto;
+            max-width: 960px;
+
+            h6 {
+                padding-bottom: .4rem;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid $grisMig;
+            }
+
+            .list-group {
+                .list-group-item {
+                    background-color: unset;
+                    border: 0;
+                    padding: 0 0 0 10px;
+                    margin: 0 0 .5rem 0;
+                    font-size: .8rem;
+                    text-align: center;
+                    line-height: 1rem;
+
+                    &:hover {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            a>li {
+                color: #fff;
+            }
+        }
+    }
+}
+
+// Footer
+@media (min-width: 768px) {
+    body {
+        &>footer {
+            .list-group-item {
+                text-align: left !important;
+            }
+        }
+    }
+}
+
+// HEADER
+// ACCES USUARI
+#loginAdmin {
+    height: 70px;
+    width: auto;
+    border-radius: 8px;
+
+    #iconBox {
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        background: #fff;
+
+        #userIcon {
+            font-size: 4rem;
+        }
+    }
+
+    #userBox {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        p {
+            width: 100%;
+            margin: 0;
+            color: #fff;
+            font-size: .8rem;
+        }
+    }
+
+    #logBox {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-left: 2px solid #fff;
+        padding: 0;
+        margin-top: 5px;
+        color: #fff;
+
+        &:hover {
+            color: $verdAcces;
+        }
+
+        #logIcon {
+            font-size: 1.5rem;
+        }
+
+        p {
+            width: 100%;
+            margin: 0;
+            padding: 0 5px;
+            text-align: center;
+            font-size: .7rem;
+            color: #fff;
+        }
+    }
+}
+
+.modal-backdrop {
+    opacity: 0.8 !important;
+}
+
+// LOGO / BUSQUEDES / IDIOMA
+.contLogoSearch {
+    margin: auto;
+    max-width: 960px;
+
+    #busquedas {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        width: 360px;
+        height: 60px;
+
+        #contSearch {
+            width: 260px;
+
+            #search {
+                width: 100%;
+            }
+        }
+
+        #botonBusquedas {
+            width: 25%;
+        }
+    }
+
+    input[type="text"] {
+        border-radius: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// camp de busquedes per dipositius -640px OCULT
+#busquedas-mv {
+    display: none !important;
+}
+
+#capsulas {
+    margin: auto;
+    max-width: 960px;
+
+    a {
+        width: 31%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 50px;
+
+        &:hover {
+            background-color: $grisClar;
+        }
+    }
+}
+
+// Idiomes
+#idiomes {
+    img {
+        border-radius: 50px;
+        border: 2px white solid;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contLogoSearch {
+        #busquedas {
+            display: none;
+        }
+    }
+
+    #busquedas-mv {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    #capsulas {
+        a {
+            padding: 6px;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 460px) {
+    #capsulas {
+        a {
+            font-size: .8rem;
+        }
+    }
+}
+
+// MAIN
+a {
+    &.caixaGenerica {
+        box-model: border-box;
+        border: .5rem solid transparent;
+        background-clip: padding-box;
+        height: 200px;
+        border-radius: 16px;
+        background-color: rgb(201, 201, 201);
+    }
+
+    &.anunci {
+        background-color: $grisMig;
+    }
+
+    &.categoria {
+        background-color: $grisClar;
+    }
+}
+
+.noPM {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+// COLUMNA DRETA
+#colDreta {
+    margin: auto;
+
+    // CISTELL COMPRA
+    #carritoBox {
+        // margin-left: -5px;
+        height: auto;
+        box-model: border-box;
+        border: .5rem solid transparent;
+        background-clip: padding-box;
+        border-radius: 16px;
+        background-color: rgb(201, 201, 201);
+
+        h5 {
+            width: 100%;
+            height: 40px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        #col-CC-Producte {
+            border: 0;
+
+            .list-group-item {
+                margin: 0;
+                padding: 5px 3px 5px 10px;
+                text-align: left;
+                overflow: hidden;
+                white-space: nowrap;
+
+                // Mostra el producte en 1 sola linea.
+                overflow: hidden;
+            }
+        }
+
+        #col-CC-Preu {
+            border: 0;
+
+            .list-group-item {
+                margin: 0;
+                padding: 5px 10px 5px 3px;
+                text-align: right;
+            }
+        }
+
+        .list-group {
+            width: 100%;
+
+            .list-group-item {
+                font-size: .9rem;
+                color: #fff;
+                background-color: unset;
+                border: 0;
+                border-radius: 0;
+                margin: 0;
+                padding: 0;
+
+                &:nth-child(odd) {
+                    background-color: $grisMig;
+                }
+            }
+        }
+
+        button {
+            width: 90%;
+            display: block;
+            margin: auto;
+        }
+    }
+
+    // NEWSLETTER
+    #newsBox {
+        // margin-left: -5px;
+        height: auto;
+        box-model: border-box;
+        border: .5rem solid transparent;
+        background-clip: padding-box;
+        border-radius: 16px;
+        background-color: rgb(201, 201, 201);
+
+        h5 {
+            width: 100%;
+            height: 40px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .form-group {
+            width: 90%;
+
+            input[type="text"] {
+                margin-top: 10px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

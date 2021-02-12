@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercici de Bootstrap</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link href="estil.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header class="d-flex flex-column">
+				<div class="align-items-center bg-secondary justify-content-between justify-content-md-between p-3 row">
+					<div class="row col-4 col-sm-2 p-0 m-0">
+						<p class="mb-0 small text-white"><i class="fa fa-map-marker"></i> Barcelona, Sant Andreu de Palomar </p>
+					</div>
+					<div id="loginAdmin" class="row col-7 col-sm-4 col-lg-3 col-xl-2 flex-row align-items-center ml-0 mr-0 pl-0 pr-0 bg-dark">
+						<div id="userBox" class="col-8 col-xl-8 text-left m-0 p-0 pl-3">
+							<p>Nom Usuari</p>
+							<p>ID Usuari</p>
+						</div>
+						<div id="logBox" class="col-4 col-md-4 col-lg-4 col-xl-4 p-0 m-0">
+							<i id="logIcon" class="fa fa-power-off" data-toggle="modal" data-target="#myModal"></i>
+							<p>LogIn</p>
+						</div>
+					</div>
+				</div>
+				<!-- Finestra Modal -->
+				<!-- The Modal -->
+				<div class="fade modal pg-show-modal" id="myModal">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<h4 class="modal-title">Accede a tu Panel de Usuario</h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+							<!-- Modal body -->
+							<div class="modal-body">
+								<!--Botones residente o registro-->
+								<div class="d-flex justify-content-around mb-4">
+									<button type="button" class="btn btn-light" id="login" style="width: 45%;">Ya soy
+										usuario
+</button>
+									<button type="button" class="btn btn-light" id="registro" style="width: 45%;">Darse de
+										alta
+</button>
+								</div>
+								<!-- Form Acceso -->
+								<article class="collapse show colAcceso">
+									<!-- LogIn -->
+									<form method="POST" action="#" id="loginForm" onsubmit="return loginValidate()" name="accesoForm" class="p-3">
+										<!-- mail -->
+										<article class="input-group mb-3">
+											<!--Email input-->
+											<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" id="emailLogin" name="emailLogin">
+											<div class="invalid-feedback" id="errorEmail"></div>
+										</article>
+										<!--Password input-->
+										<article class="form-group">
+											<!-- contra -->
+											<input type="password" class="form-control" placeholder="Contraseña" id="passwordLogin" name="passwordLogin">
+											<div class="invalid-feedback" id="errorPassword" autocomplete="off"></div>
+										</article>
+										<!--Submit-->
+										<button type="submit" class="btn btn-block" id="submit">Acceder</button>
+									</form>
+								</article>
+								<!-- Form Registro -->
+								<article class="collapse colRegistro">
+									<!-- Registro -->
+									<form method="POST" action="#" id="registreForm" onsubmit="return registreValidate()" name="registroDeForm" class="p-3">
+										<article class="input-group mb-3">
+											<!-- mail -->
+											<input type="email" class="form-control" placeholder="Escribe tu e-mail" aria-label="Email" aria-describedby="basic-addon1" id="emailRegistre" name="emailRegistre">
+											<div class="invalid-feedback" id="errorEmailReg"></div>
+										</article>
+										<!-- Password -->
+										<article class="form-group">
+											<input type="password" class="form-control" placeholder="Elige contraseña" id="passwordRegistre" name="passwordRegistre">
+											<div class="invalid-feedback" id="errorPassReg" autocomplete="off"></div>
+										</article>
+										<!-- Repite password -->
+										<article class="form-group">
+											<input type="password" class="form-control" placeholder="Repite contraseña" id="passwordRepeat" name="passwordRepeat">
+											<div class="invalid-feedback" id="errorPassRepeat" autocomplete="off"></div>
+										</article>
+										<!-- Provincia -->
+										<article class="form-group">
+											<select id="inputProvince" class="form-control">
+												<option selected value="">Selecciona Provincia</option>
+												<option>Barcelona</option>
+												<option>Tarragona</option>
+												<option>Lleida</option>
+												<option>Girona</option>
+											</select>
+										</article>
+										<!--Submit-->
+										<button type="submit" class="btn btn-block" id="submitRegistro">Registrar</button>
+									</form>
+								</article>
+							</div>
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Contenidor logo / Busquedes / idiomes -->
+				<div class="row">
+					<div class="container">
+						<div class="align-items-center col-12 contLogoSearch d-flex flex-row justify-content-between mb-4 mt-4">
+							<!-- Logo -->
+							<img src="img/logo.svg" alt="logotipo mi-empresa" width="120px" height="120px" class="m-0 p-0">
+							<!-- Busquedes -->
+							<form class="form-inline" method="POST" action="#" id="busquedas" onsubmit="return searchValidate()" name="buscador">
+								<div id="contSearch">
+									<input type="text" class="form-control mr-sm-2" placeholder="Búsquedas" aria-label="Search" id="search" name="search">
+									<div class="invalid-feedback" id="errorSearch"></div>
+								</div>
+								<button id="botonBusquedas" class="btn btn-secondary" type="submit">Buscar</button>
+							</form>
+							<!-- Idiomes -->
+							<div id="idiomes" class="dropdown p-3">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<img src="img/bandESP-BN.svg" alt="bandera idioma español" width="40px" height="40px" class="p-0"> ESP
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#"><img src="img/bandCAT-BN.svg" alt="bandera idioma catalán" width="40px" height="40px" class="p-1">CAT</a>
+									<a class="dropdown-item" href="#"><img src="img/bandENG-BN.svg" alt="bandera idioma inglés" width="40px" height="40px" class="p-1">ENG</a>
+								</div>
+							</div>
+						</div>
+						<!-- Busquedes dispositius movils -->
+						<div id="busquedas-mv" class="col-12 contLogoSearch mb-4 mt-0">
+							<input type="text" class="col-10 form-control mb-2" placeholder="Búsquedas">
+							<button class="col-10 btn btn-secondary" type="submit">Buscar</button>
+						</div>
+					</div>
+				</div>
+				<!-- Menú de categories -->
+				<div class="row bg-secondary">
+					<div id="capsulas" class="col-md-12 pt-xs-8 pt-2 pb-2">
+						<!-- 1a fila -->
+						<div class="row d-flex justify-content-around p-0 m-0">
+							<div class="col-md-6 col-sm-11 d-flex flex-row justify-content-between list-group m-0 p-2">
+								<a href="#" class="list-group-item">Alimentación</a>
+								<a href="#" class="list-group-item">Droguería</a>
+								<a href="#" class="list-group-item">Ropa</a>
+							</div>
+							<div class="col-md-6 col-sm-11 d-flex flex-row justify-content-between list-group m-0 p-2">
+								<a href="#" class="list-group-item">Zapatos</a>
+								<a href="#" class="list-group-item">Farmacia</a>
+								<a href="#" class="list-group-item">Electrónica</a>
+							</div>
+						</div>
+						<!-- 2a fila -->
+						<div class="row d-flex justify-content-around p-0 m-0">
+							<div class="col-md-6 col-sm-11 d-flex flex-row justify-content-between list-group m-0 p-2">
+								<a href="#" class="list-group-item">Casa</a>
+								<a href="#" class="list-group-item">Automoción</a>
+								<a href="#" class="list-group-item">Jardinería</a>
+							</div>
+							<div class="col-md-6 col-sm-11 d-flex flex-row justify-content-between list-group m-0 p-2">
+								<a href="#" class="list-group-item">Deportes</a>
+								<a href="#" class="list-group-item">Cultura</a>
+								<a href="#" class="list-group-item">Juegos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		<!-- Principal -->
+		<main class="container">
+			<div class="row pt-3 pb-3">
+				<!-- columna esquerra -->
+				<div class="col-md-9" data-pg-name="col-esq">
+					<!-- Fila ANUNCI wide 100%-->
+					<div class="row" data-pg-name="anunci superior">
+						<a href="#" class="align-items-center caixaGenerica anunci col-md-12 d-flex justify-content-center"> <p class="noPM">Anunci Superior</p> </a>
+					</div>
+					<!-- Fila PRODUCTE / CATEGORIA / PRODUCTE -->
+					<div class="row">
+						<a href="#" class="align-items-center caixaGenerica col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center"> <p class="noPM">Producte suggerit 1</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría REFRESCOS</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center"> <p class="noPM">Producte suggerit 2</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría MERCERÍA</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center"> <p class="noPM">Producte suggerit 3</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center ordÀr-1"> <p class="noPM">Categoría LÀCTICS</p> </a>
+					</div>
+					<!-- Fila CATEGORIA / PRODUCTE / PRODUCTE -->
+					<div class="row">
+						<a href="#" class="align-items-center caixaGenerica anunci col-md-6 d-flex justify-content-center"> <p class="noPM">Anunci 1</p> </a>
+						<a href="#" class="col-md-6 d-flex justify-content-center align-items-center caixaGenerica anunci"> <p class="noPM">Anunci 2</p> </a>
+					</div>
+					<!-- Fila ANUNCI / ANUNCI -->
+					<div class="row">
+</div>
+					<!-- Fila PRODUCTE / PRODUCTE / CATEGORIA -->
+					<div class="row">
+						<a href="#" class="align-items-center caixaGenerica col-6 col-md-4 col-sm-6 d-flex justify-content-center"> <p class="noPM">Producte suggerit 5</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-md-4 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría NEUMÀTICS</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-md-4 d-flex justify-content-center"> <p class="noPM">Producte suggerit 6</p> </a>
+					</div>
+					<!-- Fila OTRAS CATEGORIAS -->
+					<div class="row" data-pg-name="Otras Categorias">
+						<a href="#" class="col-md-12 mt-3"> <h4>Otras Catergorías</h4> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-md-3 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría VIDEOJOCS</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-md-3 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría PRESERVATIUS</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-md-3 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría JOCS de TAULA</p> </a>
+						<a href="#" class="align-items-center caixaGenerica categoria col-6 col-md-3 col-sm-6 d-flex justify-content-center"> <p class="noPM">Categoría CICLISME</p> </a>
+					</div>
+					<div class="row" data-pg-name="anunci categories">
+						<a href="#" class="align-items-center caixaGenerica anunci col-md-12 d-flex justify-content-center"> <p class="noPM">Anunci Categories</p> </a>
+					</div>
+					<div class="row" data-pg-name="Otras Categorias">
+						<a href="#" class="col-md-12 mt-3"> <h4>Productos más vistos</h4> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-md-3 col-sm-3 d-flex justify-content-center"> <p class="noPM">Producte més vist 1</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-md-3 col-sm-3 d-flex justify-content-center"> <p class="noPM">Producte más vist 2</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-md-3 col-sm-3 d-flex justify-content-center"> <p class="noPM">Producte més vist 3</p> </a>
+						<a href="#" class="align-items-center caixaGenerica col-6 col-md-3 col-sm-3 d-flex justify-content-center"> <p class="noPM">Producte més vist 4</p> </a>
+					</div>
+				</div>
+				<!-- Columna Dreta -->
+				<div id="colDreta" class="col-11 col-md-3 mt-4 mt-md-0 pl-0 pl-md-2 pr-0 pr-md-0" data-pg-name="col-dret">
+					<div class=" row">
+						<div id="carritoBox" class="col-12 pb-2 pl-0 pr-0">
+							<h5 class="text-center p-2 text-white bg-secondary"> <i class="fa fa-shopping-basket"></i> Cesta </h5>
+							<!-- Columna Producte -->
+							<div class="col-12 ml-auto mr-auto pl-0 pr-0 row">
+								<div id="col-CC-Producte" class="col-6 col-md-8 p-0">
+									<ul class="list-group">
+										<li class="list-group-item">Cerveza Coronita Light</li>
+										<li class="list-group-item">Champú Fructis</li>
+										<li class="list-group-item">Cola Cao 1L</li>
+										<li class="list-group-item">Esparragos Cojonudos de Navarra</li>
+										<li class="list-group-item">Callos a la Madrileña</li>
+										<li class="list-group-item">Queso Cabrales 200grs.</li>
+									</ul>
+								</div>
+								<!-- Columna Preu -->
+								<div id="col-CC-Preu" class="col-6 col-md-4 p-0">
+									<ul class="list-group">
+										<li class="list-group-item">3,10€</li>
+										<li class="list-group-item">5,59€</li>
+										<li class="list-group-item">2,50€</li>
+										<li class="list-group-item">3,10€</li>
+										<li class="list-group-item">5,59€</li>
+										<li class="list-group-item">2,50€</li>
+									</ul>
+								</div>
+							</div>
+							<!-- Botó comprar -->
+							<button type="button" class="btn btn-secondary mt-3 ">Comprar</button>
+						</div>
+					</div>
+					<!-- Newsletter -->
+					<div class="row">
+						<div id="newsBox" class="col-12 pb-2 pl-0 pr-0">
+							<h5 class="text-center p-2 text-white bg-secondary"> <i class="fa fa-newspaper-o"></i>
+							Newsletter </h5>
+							<form method="POST" action="#" id="suscForm" onsubmit="return loginValidate()" name="accesoForm" class="form-group m-auto">
+								<input type="text" class="form-control" placeholder="Nombre">
+								<input type="email" class="form-control mt-2" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" id="emailSuscrip" name="emailSuscrip">
+								<div class="invalid-feedback" id="errorEmailSusc"></div>
+								<button type="button" class="btn btn-secondary mt-3">Suscribir</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="container-fluid bg-secondary">
+			<div id="contFooter" class="row ml-auto mr-auto pt-4">
+				<div class="col-12 col-md-3 order-md-4 d-flex justify-content-center pb-5">
+					<img src="img/logo.svg" alt="logotipo mi-empresa" width="120px" height="120px" class="p-2">
+				</div>
+				<div class="col-12 col-md-3 order-md-first pb-4 text-white">
+					<h6 class="text-white">El Cliente</h6>
+					<ul class="list-group">
+						<a href="#"> <li class="list-group-item">Centro de Ayuda</li> </a>
+						<a href="#"> <li class="list-group-item">Contáctanos</li> </a>
+						<a href="#"> <li class="list-group-item">Devoluciones</li> </a>
+						<a href="#"> <li class="list-group-item">Normas</li> </a>
+						<a href="#"> <li class="list-group-item">Política de Privacidad</li> </a>
+					</ul>
+				</div>
+				<div class="col-12 col-md-3 order-md-first pb-4 text-white">
+					<h6 class="text-white mb-2">Nosotros</h6>
+					<ul class="list-group">
+						<a href="#"> <li class="list-group-item">El Grupo</li> </a>
+						<a href="#"> <li class="list-group-item">El Equipo</li> </a>
+						<a href="#"> <li class="list-group-item">Contáctanos</li> </a>
+						<a href="#"> <li class="list-group-item">Normas</li> </a>
+						<a href="#"> <li class="list-group-item">Únete a Nosotros!</li> </a>
+					</ul>
+				</div>
+				<div class="col-12 col-md-3 order-md-first pb-4 text-white">
+					<h6 class="text-white mb-2">Compras</h6>
+					<ul class="list-group">
+						<a href="#"> <li class="list-group-item">Todas las Categorías</li> </a>
+						<a href="#"> <li class="list-group-item">Envíos</li> </a>
+						<a href="#"> <li class="list-group-item">Política de Entregas</li> </a>
+						<a href="#"> <li class="list-group-item">FAQs Compras</li> </a>
+					</ul>
+				</div>
+			</div>
+		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<script src="js/login.js"></script>
+	</body>
+</html>
