@@ -1,0 +1,10 @@
+v. 0.5 - 13.02.2021 - Actualització de l'exercici de Maquetació de Boostrap.
+
+Integració de programari Javascript per a controlar el bon funcionament dels formularis de la pàgina. Feina de validació de buscador de productes a la pàgina i del formulari d'alta de sessió del usuari.
+
+
+v. 0.1 - Finals desembre 2020 - Exercici de maquetació de la IT Academy.
+
+Basat en l'exercici d'analisis de projecte, treballat durant les mesos de Nov i Des de 2020. https://github.com/estudiQiero/IT-Analisis-de-projecte.
+
+Penjat a GitHub el 7.01.2021 al repositori: https://github.com/estudiQiero/MaquetaBootstrap com a exercici de Bootstrap.
