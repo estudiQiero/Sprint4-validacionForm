@@ -2,6 +2,8 @@ v. 0.5 - 13.02.2021 - Actualització de l'exercici de Maquetació de Boostrap.
 
 Integració de programari Javascript per a controlar el bon funcionament dels formularis de la pàgina. Feina de validació de buscador de productes a la pàgina i del formulari d'alta de sessió del usuari.
 
+Creació de branca dev a GitHub.
+
 
 v. 0.1 - Finals desembre 2020 - Exercici de maquetació de la IT Academy.
 
